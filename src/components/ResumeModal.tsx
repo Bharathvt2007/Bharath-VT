@@ -87,12 +87,22 @@ Tags: ${p.tags.join(', ')}`).join('\n\n')}
         <div className="p-6 md:p-8 overflow-y-auto space-y-6 text-[#dfe2f1] text-sm leading-relaxed">
           {/* Header */}
           <div className="border-b border-[#3e484f]/40 pb-5 text-center sm:text-left flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-            <div>
-              <h1 className="text-2xl sm:text-3xl font-bold text-[#8ed5ff]">
-                {PERSONAL_INFO.name}
-              </h1>
-              <p className="text-base text-[#dfe2f1] font-medium">{PERSONAL_INFO.role}</p>
-              <p className="text-xs text-[#bdc8d1]">{PERSONAL_INFO.institution}</p>
+            <div className="flex items-center gap-4">
+              <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-[#8ed5ff]/60 flex-shrink-0 shadow-md">
+                <img
+                  src={PERSONAL_INFO.avatarUrl}
+                  alt={PERSONAL_INFO.name}
+                  className="w-full h-full object-cover"
+                  referrerPolicy="no-referrer"
+                />
+              </div>
+              <div>
+                <h1 className="text-2xl sm:text-3xl font-bold text-[#8ed5ff]">
+                  {PERSONAL_INFO.name}
+                </h1>
+                <p className="text-base text-[#dfe2f1] font-medium">{PERSONAL_INFO.role}</p>
+                <p className="text-xs text-[#bdc8d1]">{PERSONAL_INFO.institution}</p>
+              </div>
             </div>
             <div className="text-xs font-mono text-[#bdc8d1] space-y-1 sm:text-right">
               <p className="flex items-center sm:justify-end gap-1.5">

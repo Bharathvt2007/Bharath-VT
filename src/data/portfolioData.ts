@@ -14,8 +14,7 @@ export const PERSONAL_INFO = {
   phone: '7483349531',
   email: 'bharathbharath79082@gmail.com',
   displayEmail: 'bharath.vt@example.com',
-  avatarUrl:
-    'https://lh3.googleusercontent.com/aida-public/AB6AXuAud6lnidA4mA8PeeFzu3tenhlPZO0o9lQQLEyCuJbk146t4XFOxqNv7hRwH2F3vPkCImWOCuC56j9pq9XlxqbQVbdbqKDfOtH729khxvJX7xL-fEXuEb7QkDZs00wyIjYaBPjgdQAM5mqXHOW5HosqA_hhiwmoQt6yemLLGDL5oo3sv7fpdOnQMWS7k6aKdymZgNutGNkAzWw-Fhcb_QSpWtGJySXX3CO2aKVZrlUkUfc2RHnRRZSa',
+  avatarUrl: '/bharath_profile.jpg',
   social: {
     github: 'https://github.com',
     linkedin: 'https://linkedin.com',

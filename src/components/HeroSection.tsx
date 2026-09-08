@@ -1,8 +1,42 @@
-import React from 'react';
-import { GraduationCap, Calendar, ArrowRight, Mail } from 'lucide-react';
+import React, { useState, useRef, useEffect } from 'react';
+import { GraduationCap, Calendar, ArrowRight, Mail, Camera, RotateCcw } from 'lucide-react';
 import { PERSONAL_INFO } from '../data/portfolioData';
 
 export const HeroSection: React.FC = () => {
+  const [avatarSrc, setAvatarSrc] = useState(PERSONAL_INFO.avatarUrl);
+  const fileInputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    const saved = localStorage.getItem('bharath_custom_avatar');
+    if (saved) {
+      setAvatarSrc(saved);
+    }
+  }, []);
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        const result = event.target?.result as string;
+        if (result) {
+          setAvatarSrc(result);
+          try {
+            localStorage.setItem('bharath_custom_avatar', result);
+          } catch (err) {
+            console.warn('Could not save avatar to localStorage:', err);
+          }
+        }
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
+  const handleResetAvatar = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    localStorage.removeItem('bharath_custom_avatar');
+    setAvatarSrc(PERSONAL_INFO.avatarUrl);
+  };
   return (
     <section
       id="home"
@@ -81,16 +115,48 @@ export const HeroSection: React.FC = () => {
         {/* Ambient Glow Backing */}
         <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-[#38bdf8]/30 via-[#ce9bff]/20 to-transparent blur-3xl transform scale-110 pointer-events-none"></div>
 
+        {/* Hidden File Input */}
+        <input
+          type="file"
+          ref={fileInputRef}
+          onChange={handleFileChange}
+          accept="image/*"
+          className="hidden"
+          id="profile-photo-file-input"
+        />
+
         {/* Border Container */}
         <div className="relative w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 rounded-3xl p-1.5 bg-gradient-to-b from-[#8ed5ff]/40 via-[#3e484f]/30 to-[#ce9bff]/30 hero-avatar-glow">
           <div className="w-full h-full rounded-[22px] overflow-hidden bg-[#0a0e18] relative group">
             <img
               id="hero-avatar-image"
-              src={PERSONAL_INFO.avatarUrl}
+              src={avatarSrc}
               alt="Professional portrait avatar of Bharath VT, young engineering student in dark blazer with modern tech studio lighting"
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               referrerPolicy="no-referrer"
             />
+
+            {/* Quick Upload / Change Overlay */}
+            <div className="absolute top-3 right-3 flex items-center gap-1.5 z-20">
+              {avatarSrc !== PERSONAL_INFO.avatarUrl && (
+                <button
+                  onClick={handleResetAvatar}
+                  className="p-2 rounded-xl bg-[#0a0e18]/80 backdrop-blur-md border border-[#3e484f]/60 text-[#bdc8d1] hover:text-[#8ed5ff] transition-all"
+                  title="Reset to default photo"
+                  aria-label="Reset photo"
+                >
+                  <RotateCcw size={14} />
+                </button>
+              )}
+              <button
+                onClick={() => fileInputRef.current?.click()}
+                className="p-2 rounded-xl bg-[#0a0e18]/80 backdrop-blur-md border border-[#3e484f]/60 text-[#dfe2f1] hover:text-[#8ed5ff] hover:border-[#8ed5ff] transition-all cursor-pointer group/btn"
+                title="Change or upload profile photo"
+                aria-label="Upload profile photo"
+              >
+                <Camera size={15} className="group-hover/btn:scale-110 transition-transform" />
+              </button>
+            </div>
 
             {/* Corner Badge Overlay */}
             <div
