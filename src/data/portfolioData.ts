@@ -124,7 +124,8 @@ export const PROJECTS_DATA: ProjectItem[] = [
     category: 'Automated Access System',
     badge: 'Featured IoT Project',
     description:
-      'IoT-based automated access-control project using Arduino UNO, MFRC522 RFID reader, RFID tag and servo motor. Features secure contactless badge scanning with physical actuator control.',
+      'IoT-based automated access-control project using Arduino UNO, MFRC522 RFID reader, RFID tag, and servo motor. The system verifies authorized RFID tags and controls a servo-based locking mechanism for secure contactless access.',
+      
     image:
       'https://lh3.googleusercontent.com/aida-public/AB6AXuACyMx4yE6eXmBrbx6EVB8h7W-wGbbRdfbbvWG5g8-sIEtGvU-mUWp2aYZIHLal8mYWQrcOEqA_CHTSNt_aTx5ZJVt09UH77bKSO_4t4qOEj2_FDdFVmkMnaRGzFg1MDVOinyM4v-c-9hO2_c1oHwB2W6M8B0kEgZI4q_ChZmZa8f4A8SjP6k5OFm6e-M2L5lTv9-myo_YWzMwZUjG5Ive7pijHGDW2zQvfm-2AXt6ae5_0c6xdZ7DG',
     tags: ['Arduino UNO', 'MFRC522 RFID', 'Servo Motor', 'C/C++'],
