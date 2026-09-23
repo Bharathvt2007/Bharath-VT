@@ -15,3 +15,4 @@ Hi, I’m Bharath VT, a Computer Science student interested in Software Developm
 
 - Software Development
 - Data Analytics
+This portfolio showcases my projects and technical development.
