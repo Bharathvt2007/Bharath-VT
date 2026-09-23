@@ -48,7 +48,7 @@ export const SkillsSection: React.FC = () => {
           Skills Matrix Dashboard
         </h2>
         <p className="text-sm md:text-base text-[#bdc8d1] max-w-xl">
-          Curated technical proficiencies grounded in coursework, hands-on programming labs, and personal builds.
+          Curated technical skills developed through coursework, coding practice, hands-on projects, and personal builds.
         </p>
         <div className="w-16 h-1 bg-gradient-to-r from-[#8ed5ff] to-transparent rounded-full mt-1"></div>
       </div>
