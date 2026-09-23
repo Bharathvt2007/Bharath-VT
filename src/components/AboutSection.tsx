@@ -39,10 +39,10 @@ export const AboutSection: React.FC = () => {
         className="p-6 md:p-8 rounded-2xl glass-card border border-[#3e484f]/40 relative overflow-hidden"
       >
         <p className="text-base md:text-lg text-[#dfe2f1] leading-relaxed font-normal">
-          I am a motivated and enthusiastic engineering student pursuing Artificial Intelligence and
-          Data Science. I have a strong interest in programming, databases, IoT, software
-          development, and emerging technologies. I enjoy learning through practical projects,
-          coding practice, and hands-on technical work.
+          I am a Computer Science student interested in Software Development and Data Analytics. I
+          have a strong interest in programming, databases, problem solving, and emerging
+          technologies. I enjoy building practical projects, improving my coding skills, and gaining
+          hands-on experience through technical work.
         </p>
       </div>
 
